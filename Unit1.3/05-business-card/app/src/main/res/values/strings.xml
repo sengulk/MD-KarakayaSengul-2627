@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Business Card</string>
+    <string name="name">Sengül Karakaya</string>
+    <string name="role">Student Developer</string>
+    <string name="number">0472 xx 56 53</string>
+    <string name="github">sengulk</string>
+    <string name="mail">sengul.karakaya@student.odisee.be</string>
+</resources>
