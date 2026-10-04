@@ -21,11 +21,10 @@ class Person(val name: String, val age: Int, val hobby: String?, val referrer: P
 
             // check of de referrer een hobby heeft
             if (referrer.hobby != null) {
-                print(", who likes to ${referrer.hobby}.")
+                print(", who likes to ${referrer.hobby}")
             }
-        }
-        // persoon heeft geen referrer
-        else {
+            print(".")
+        } else {
             print("Doesn't have a referrer.")
         }
 
