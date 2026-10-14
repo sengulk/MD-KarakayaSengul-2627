@@ -1,7 +1,9 @@
+// TASK 2
 enum class Daypart {
     MORNING, AFTERNOON, EVENING
 }
 
+// TASK 1
 data class Event(
     val title: String,
     val description: String? = null,
@@ -9,6 +11,15 @@ data class Event(
     val durationInMinutes: Int
 )
 
+// TASK 7
+val Event.durationOfEvent: String
+    get() = if (this.durationInMinutes < 60) {
+        "short"
+    } else {
+        "long"
+    }
+
+// TASK 1 - 2 - 3
 fun main() {
     val events = mutableListOf(
         Event(title = "Wake up", description = "Time to get up", daypart = Daypart.MORNING, durationInMinutes = 0),
@@ -19,10 +30,24 @@ fun main() {
         Event(title = "Check out latest Android Jetpack library", daypart = Daypart.EVENING, durationInMinutes = 45)
     )
 
-    println("Aantal events: ${events.size}")
-
-    // event toevoegen
+    // TASK 3
+    println("Amount of events: ${events.size}")
     events.add(Event(title = "Sleep", daypart = Daypart.EVENING, durationInMinutes = 480))
+    println("Amount of events after add: ${events.size}")
 
-    println("Aantal events na toevoegen: ${events.size}")
+    // TASK 4
+    val shortEvents = events.filter { it.durationInMinutes < 60 }
+    println("You have ${shortEvents.size} short events.")
+
+    // TASK 5
+    val eventsByDaypart = events.groupBy { it.daypart }
+    eventsByDaypart.forEach { daypart, events ->
+        println("$daypart: ${events.size} events")
+    }
+
+    // TASK 6
+    println("Last event of the day: ${events.last().title}")
+
+    // TASK 7
+    println("Duration of first event of the day: ${events[0].durationOfEvent}")
 }
